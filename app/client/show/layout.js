@@ -1,12 +1,15 @@
 import './style.css';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+   weight: ['400', '700'],
+   subsets: ['latin'],
+});
 
 export default function RootLayout({ children }) {
    return (
       <html lang="en">
-         <body className={inter.className}>
+         <body className={poppins.className}>
             <h1>Top Info</h1>
             {children}
          </body>
