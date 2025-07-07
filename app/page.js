@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 async function fetchData() {
    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
    const result = await res.json();
@@ -11,7 +13,12 @@ export default async function Home() {
       <div>
          <h1>Главная страница</h1>
          {posts.map((el) => (
-            <div key={el.id}>{el.title}</div>
+            <div key={el.id} className="post">
+               <h2>{el.title}</h2>
+               <p>{el.body}</p>
+               <Link href={`/post/${el.id}`}>Детальнее</Link>
+               <a href={`/post/${el.id}`}>Детальнее</a>
+            </div>
          ))}
       </div>
    );
