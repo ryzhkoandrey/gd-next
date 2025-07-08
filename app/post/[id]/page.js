@@ -4,7 +4,9 @@ export async function generateStaticParams() {
    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
    const posts = await res.json();
 
-   return posts.map((post) => ({
+   const limitedPosts = posts.slice(0, 10); // только первые 10
+
+   return limitedPosts.map((post) => ({
       id: post.id.toString(),
    }));
 }
