@@ -14,9 +14,10 @@ export default async function Home() {
          <h1>Главная страница</h1>
          {posts.map((el) => (
             <div key={el.id} className="post">
-               <h2>{el.title}</h2>
+               <h2>
+                  <Link href={`/post/${el.id}`}>{el.title}</Link>
+               </h2>
                <p>{el.body}</p>
-               <Link href={`/post/${el.id}`}>Детальнее</Link>
             </div>
          ))}
       </div>
