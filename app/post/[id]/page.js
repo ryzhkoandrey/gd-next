@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Post from '@/app/components/Post';
 
 async function fetchData(id) {
    const res = await fetch('https://jsonplaceholder.typicode.com/posts/' + id);
@@ -6,20 +6,14 @@ async function fetchData(id) {
    return result;
 }
 
-const Post = async ({ params: { id } }) => {
+const PagePost = async ({ params: { id } }) => {
    const post = await fetchData(id);
 
    return (
-      <div>
-         <Link href="/">Back</Link>
-         <br />
-         <br />
-         <p>{post.id}</p>
-         <h1>{post.title}</h1>
-         <p>{post.body}</p>
-         <strong>Avtor id: {post.userId}</strong>
+      <div className="post">
+         <Post post={post} />
       </div>
    );
 };
 
-export default Post;
+export default PagePost;
