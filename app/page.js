@@ -17,7 +17,6 @@ export default async function Home() {
                <h2>{el.title}</h2>
                <p>{el.body}</p>
                <Link href={`/post/${el.id}`}>Детальнее</Link>
-               <a href={`/post/${el.id}`}>Детальнее</a>
             </div>
          ))}
       </div>
