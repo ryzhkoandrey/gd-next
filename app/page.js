@@ -3,7 +3,7 @@ import Link from 'next/link';
 async function fetchData() {
    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
    const result = await res.json();
-   return result;
+   return result.slice(0, 10); // только первые 10
 }
 
 export default async function Home() {
